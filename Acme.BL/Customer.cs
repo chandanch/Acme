@@ -36,7 +36,6 @@ namespace Acme.BL
                 _lastName = value;
             }
         }
-
         public string FullName 
         { 
             get
