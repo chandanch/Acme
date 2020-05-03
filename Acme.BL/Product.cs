@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Acme.BL
 {
-    class Product
+    public class Product
     {
         public Product()
         {
@@ -37,23 +37,5 @@ namespace Acme.BL
             return isValid;
         }
 
-        /// <summary>
-        /// Retrieve one product
-        /// </summary>
-        /// <param name="productId"></param>
-        /// <returns></returns>
-        public Product Retrieve(int productId)
-        {
-            return new Product();
-        }
-
-        /// <summary>
-        /// Save product
-        /// </summary>
-        /// <returns></returns>
-        public bool Save()
-        {
-            return true;
-        }
     }
 }

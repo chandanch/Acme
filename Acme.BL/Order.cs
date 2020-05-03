@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Acme.BL
 {
-    class Order
+    public class Order
     {
         public Order()
         {
@@ -25,25 +25,6 @@ namespace Acme.BL
         /// </summary>
         /// <returns></returns>
         public bool Validate()
-        {
-            return true;
-        }
-
-        /// <summary>
-        /// Retrieves one order by order Id
-        /// </summary>
-        /// <param name="orderId"></param>
-        /// <returns></returns>
-        public Order Retrieve(int orderId)
-        {
-            return new Order();
-        }
-
-        /// <summary>
-        /// Saves the Order
-        /// </summary>
-        /// <returns></returns>
-        public bool Save()
         {
             return true;
         }
