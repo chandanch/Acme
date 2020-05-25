@@ -8,7 +8,8 @@ namespace Acme.BL
 {
     public class Customer
     {
-        public Customer()
+        // constructor chaining - a constructor calling another constructor
+        public Customer(): this(0) 
         {
 
         }
@@ -16,9 +17,12 @@ namespace Acme.BL
         public Customer(int customerId)
         {
             CustomerId = customerId;
+            AddressList = new List<Address>();
         }
         public int CustomerId { get; private set; }
         public string EmailAddress { get; set; }
+
+        public List<Address> AddressList { get; set; }
 
         // Auto-Implemented property - In the backing field is automatically created
         public string FirstName { get; set; }

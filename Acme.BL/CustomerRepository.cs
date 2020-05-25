@@ -8,6 +8,13 @@ namespace Acme.BL
 {
     public class CustomerRepository
     {
+        public CustomerRepository()
+        {
+            addressRepository = new AddressRepository();
+        }
+        
+        private AddressRepository addressRepository { get; set; }
+
         /// <summary>
         /// Retrieves Customer by customer ID
         /// </summary>
@@ -15,13 +22,14 @@ namespace Acme.BL
         /// <returns></returns>
         public Customer Retrieve(int customerId)
         {
-            var customer = new Customer(1);
+            var customer = new Customer(customerId);
 
             if (customerId == 1)
             {
                 customer.FirstName = "John";
                 customer.LastName = "Doe";
                 customer.EmailAddress = "John.Doe@acme.com";
+                customer.AddressList = addressRepository.RetrieveByCustomerId(customerId).ToList();
             }
             return customer;
         }
@@ -30,7 +38,7 @@ namespace Acme.BL
         /// Saves customer data
         /// </summary>
         /// <returns></returns>
-        public bool Save()
+        public bool Save(Customer customer)
         {
             return true;
         }
