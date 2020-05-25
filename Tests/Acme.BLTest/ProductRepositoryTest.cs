@@ -14,9 +14,9 @@ namespace Acme.BLTest
             var productRepository = new ProductRepository();
             var expected = new Product(1)
             {
-                ProductName = "Canned Jam",
-                ProductDescription = "Canned Jams 200g sealed can",
-                CurrentPrice = 13
+                ProductName = "Spock Box",
+                ProductDescription = "Spock Box tool set 3 packs",
+                CurrentPrice = 34
             };
 
             //-- Act

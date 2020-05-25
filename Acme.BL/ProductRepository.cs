@@ -3,36 +3,34 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Acme.BL;
 
-namespace Acme.BL
+namespace Acme.BLTest
 {
     public class ProductRepository
     {
         /// <summary>
-        /// Retrieves Product by Product ID
+        /// Retrieve a single product
         /// </summary>
-        /// <param name="customerId"></param>
+        /// <param name="productId"></param>
         /// <returns></returns>
         public Product Retrieve(int productId)
         {
-            var product = new Product(1);
+            Product product = new Product(productId);
 
             if (productId == 1)
             {
-                product.CurrentPrice = 13;
-                product.ProductName = "Canned Jam";
-                product.ProductDescription = "Canned Jams 200g sealed can";
+                product.ProductName = "Spock Box";
+                product.ProductDescription = "Spock Box tool set 3 packs";
+                product.CurrentPrice = 34;
             }
             return product;
         }
 
-        /// <summary>
-        /// Saves product data
-        /// </summary>
-        /// <returns></returns>
         public bool Save()
         {
             return true;
         }
+
     }
 }
