@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Acme.BL
 {
-    public class Product
+    public class Product : EntityBase
     {
         public Product()
         {
@@ -24,11 +24,13 @@ namespace Acme.BL
         public string ProductDescription { get; set; }
         public decimal? CurrentPrice { get; set; }
 
+        public override string ToString() => ProductName;
+
         /// <summary>
         /// Validate product Data
         /// </summary>
         /// <returns></returns>
-        public bool Validate()
+        public override bool Validate()
         {
             var isValid = true;
             if (string.IsNullOrWhiteSpace(ProductName)) isValid = false;

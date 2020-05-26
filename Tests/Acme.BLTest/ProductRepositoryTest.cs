@@ -28,5 +28,43 @@ namespace Acme.BLTest
             Assert.AreEqual(expected.CurrentPrice, actual.CurrentPrice);
 
         }
+
+        [TestMethod()]
+        public void SaveIsValid()
+        {
+            //-- Arrange
+            var productRepository = new ProductRepository();
+            var updatedProduct = new Product(2)
+            {
+                CurrentPrice = 23,
+                ProductDescription = "Spock Hybrid set box 2 packs",
+                ProductName = "Spock Hybrid",
+                HasChanges = true
+            };
+
+            //-- Act
+            var actual = productRepository.Save(updatedProduct);
+
+            //-- Assert
+            Assert.AreEqual(true, actual);
+        }
+
+        [TestMethod]
+        public void SaveIsInvalid()
+        {
+            var productRepository = new ProductRepository();
+            var updatedProduct = new Product(2)
+            {
+                CurrentPrice = 23,
+                ProductDescription = "Spock Hybrid set box 2 packs",
+                ProductName = null,
+                HasChanges = true
+            };
+
+            //-- Act
+            var actual = productRepository.Save(updatedProduct);
+
+            Assert.AreEqual(false, actual);
+        }
     }
 }

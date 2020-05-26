@@ -33,5 +33,7 @@ namespace Acme.BL
         {
             return true;
         }
+
+        public override string ToString() => $"{OrderDate.Value.Date} ({OrderId})";
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Acme.BL
 {
-    public class Customer
+    public class Customer : EntityBase
     {
         // constructor chaining - a constructor calling another constructor
         public Customer(): this(0) 
@@ -66,7 +66,7 @@ namespace Acme.BL
         /// <returns>
         /// True or false
         /// </returns>
-        public bool Validate()
+        public override bool Validate()
         {
             var isValid = true;
             if (string.IsNullOrWhiteSpace(LastName)) isValid = false;
@@ -79,5 +79,7 @@ namespace Acme.BL
         {
             return new List<Customer>();
         }
+
+        public override string ToString() => FullName;
     }
 }

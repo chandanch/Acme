@@ -24,12 +24,38 @@ namespace Acme.BLTest
                 product.ProductDescription = "Spock Box tool set 3 packs";
                 product.CurrentPrice = 34;
             }
+
+            Object myobj = new Object();
+            Console.WriteLine($"Object: {myobj.ToString()}");
+            Console.WriteLine($"Product: {product.ToString()}");
+
             return product;
+
         }
 
         public bool Save(Product product)
         {
-            return true;
+            var success = true;
+
+            if(product.HasChanges)
+            {
+                if(product.IsValid)
+                {
+                    if(product.IsNew)
+                    {
+
+                    }
+                    else
+                    {
+
+                    }
+                }
+                else
+                {
+                    success = false;
+                }
+            }
+            return success;
         }
 
     }
